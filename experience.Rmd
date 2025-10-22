@@ -1,0 +1,11 @@
+---
+title: "Experience"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+Check out my academic and professional experience in my [resume](resume.pdf).
+
+Return to the [homepage](index.html). 
