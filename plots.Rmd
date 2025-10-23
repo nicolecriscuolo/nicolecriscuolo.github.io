@@ -31,7 +31,7 @@ restaurant_inspec =
 Column {data-width=650}
 -----------------------------------------------------------------------
 
-### Chart A
+### Pizza Restaurant Inspection Grades in Manhattan
 
 ```{r}
 restaurant_inspec |> 
@@ -44,16 +44,13 @@ restaurant_inspec |>
     x = ~latitude, y = ~longitude, color = ~grade,
     text = ~label, 
     type = "scatter", mode = "markers"
-  ) |> 
-  layout(
-    title = "Pizza Restaurant Inspection Grades in Manhattan"
   )
 ```
 
 Column {data-width=350}
 -----------------------------------------------------------------------
 
-### Chart B
+### Frequency of Pizza Restaurant Inspection Grades in Manhattan
 
 ```{r}
 restaurant_inspec |> 
@@ -66,14 +63,10 @@ restaurant_inspec |>
   plot_ly(
     x = ~grade, y = ~n,
     type = "bar"
-  ) |> 
-  layout(
-    title = "Frequency of Pizza Restaurant Inspection Grades in Manhattan",
-    font = list (size = 8)
   )
 ```
 
-### Chart C
+### Distribution of Restaurant Inspection Scores in Each NYC Borough
 
 ```{r}
 restaurant_inspec |>
@@ -83,10 +76,6 @@ restaurant_inspec |>
     x = ~boro,
     y = ~score,
     type = "violin"
-  ) |> 
-  layout(
-    title = "Distribution of Restaurant Inspection Scores in Each NYC Borough",
-    font = list (size = 8)
   )
 ```
 
