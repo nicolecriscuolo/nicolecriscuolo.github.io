@@ -6,6 +6,8 @@ output:
     toc_float: true
 ---
 
+## Resume 
+
 Check out my academic and professional experience in my [resume](resume.pdf).
 
 Return to the [homepage](index.html). 

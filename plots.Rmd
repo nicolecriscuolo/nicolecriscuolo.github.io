@@ -1,0 +1,92 @@
+---
+title: "Plots"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(p8105.datasets)
+library(tidyverse)
+library(plotly)
+data(rest_inspec)
+
+restaurant_inspec =
+  rest_inspec |> 
+  drop_na(grade) |> 
+    filter(
+    latitude != 0
+  ) |> 
+  mutate(
+    critical_flag = case_match(
+      critical_flag,
+      "Y" ~ "Yes",
+      "N" ~ "No"
+    )
+  )
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+restaurant_inspec |> 
+  filter(
+    boro == "Manhattan",
+    str_detect(cuisine_description, "[Pp][Ii][Zz][Zz][Aa]")
+    ) |> 
+  mutate(label = str_c("Restaurant: ", dba, "\n Score: ", score, "\nCritical Flag: ", critical_flag)) |> 
+  plot_ly(
+    x = ~latitude, y = ~longitude, color = ~grade,
+    text = ~label, 
+    type = "scatter", mode = "markers"
+  ) |> 
+  layout(
+    title = "Pizza Restaurant Inspection Grades in Manhattan"
+  )
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+restaurant_inspec |> 
+  filter(
+    boro == "Manhattan",
+    str_detect(cuisine_description, "[Pp][Ii][Zz][Zz][Aa]")
+    ) |> 
+  count(grade) |> 
+  mutate(grade = fct_reorder(grade, n)) |>
+  plot_ly(
+    x = ~grade, y = ~n,
+    type = "bar"
+  ) |> 
+  layout(
+    title = "Frequency of Pizza Restaurant Inspection Grades in Manhattan",
+    font = list (size = 8)
+  )
+```
+
+### Chart C
+
+```{r}
+restaurant_inspec |>
+  drop_na(score) |> 
+  group_by(boro) |> 
+  plot_ly(
+    x = ~boro,
+    y = ~score,
+    type = "violin"
+  ) |> 
+  layout(
+    title = "Distribution of Restaurant Inspection Scores in Each NYC Borough",
+    font = list (size = 8)
+  )
+```
+

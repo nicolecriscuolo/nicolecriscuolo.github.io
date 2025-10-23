@@ -6,6 +6,8 @@ output:
     toc_float: true
 ---
 
-## About me!
 
-Hi! My name is Nicole Criscuolo. I am a first-year master's student at Columbia University Mailman School of Public Health. I was born and raised in New Jersey and have always loved visiting NYC! Some of my hobbies include running, baking, cooking, embroidery, painting, and listening to music. Thanks for visiting!
+## About me! 
+
+Hi! My name is Nicole Criscuolo. I am a first-year master's student at Columbia University Mailman School of Public Health. I was born and raised in New Jersey and have always loved visiting NYC, especially during the holidays. My favorite thing to do in the city is try new restaurants. Here you can check out some [plots](plots.html) on NYC restaurant scores. Some of my other hobbies include running, baking, cooking, embroidery, painting, and listening to music. Thanks for visiting!
+
